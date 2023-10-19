@@ -1,1 +1,37 @@
 https://practice.geeksforgeeks.org/problems/in-first-but-second5423/1
+#include <iostream>
+using namespace std;
+
+const int MAX = 1000001;
+
+void findExtraElements(int A[], int B[], int N, int M) {
+    bool hash[MAX] = {false};
+
+    for (int i = 0; i < M; i++) {
+        hash[B[i]] = true;
+    }
+
+    cout << "Extra elements in the first array: ";
+    for (int i = 0; i < N; i++) {
+        if (!hash[A[i]]) {
+            cout << A[i] << " ";
+        }
+    }
+    cout << endl;
+}
+
+int main() {
+    int N, M;
+    cin >> N >> M;
+    int A[N], B[M];
+    for (int i = 0; i < N; i++) {
+        cin >> A[i];
+    }
+    for (int i = 0; i < M; i++) {
+        cin >> B[i];
+    }
+    findExtraElements(A, B, N, M);
+
+    return 0;
+}
+
